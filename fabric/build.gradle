@@ -18,7 +18,10 @@ tasks.javadoc {
     // fuck javadoc encode error
     enabled = false
 }
-
+tasks.named('jar', Jar) {
+    destinationDirectory.set(file("../builds/jar")) // 输出到 build/customLibs
+    archiveFileName.set("${rootProject.mod_name}-Fabric-${rootProject.minecraft_version}-${rootProject.version}.jar")
+}
 loom {
     def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {

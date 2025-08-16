@@ -26,7 +26,10 @@ dependencies {
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
 }
-
+tasks.named('jar', Jar) {
+    destinationDirectory.set(file("../builds/jar")) // 输出到 build/customLibs
+    archiveFileName.set("${rootProject.mod_name}-Common-${rootProject.minecraft_version}-${rootProject.version}.jar")
+}
 configurations {
     commonJava {
         canBeResolved = false

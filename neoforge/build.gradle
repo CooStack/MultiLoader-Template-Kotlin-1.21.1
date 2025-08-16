@@ -39,7 +39,10 @@ neoForge {
         }
     }
 }
-
+tasks.named('jar', Jar) {
+    destinationDirectory.set(file("../builds/jar")) // 输出到 build/customLibs
+    archiveFileName.set("${rootProject.mod_name}-NeoForge-${rootProject.minecraft_version}-${rootProject.version}.jar")
+}
 repositories {
     maven {
         name = "Kotlin for Forge"
